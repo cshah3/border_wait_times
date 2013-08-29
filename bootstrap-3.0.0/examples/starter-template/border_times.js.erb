@@ -1,0 +1,27 @@
+function initialize() {
+  var myLatlng = new google.maps.LatLng(-25.363882,100);
+  var mapOptions = {
+    zoom: 2,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById('google_map'), mapOptions);
+
+  addMarker("test", {
+      position: new google.maps.LatLng(-20,100),
+      map: map,
+      title: 'Hello World!'
+  });
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+function addMarker(name, opts) {
+  marker = new google.maps.Marker(opts);
+
+  google.maps.event.addListener(marker, 'click', function() {
+    element_to_scroll_to = document.getElementById(name);
+    element_to_scroll_to.scrollIntoView();
+  });
+}
