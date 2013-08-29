@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Canadian Border Wait Times</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.css" rel="stylesheet">
@@ -50,14 +50,32 @@
               <p>Ever feel lost waiting for the long lines, the slow traffic, the never ending frisking? No longer... Cherry & some dude named Jon have invented the most magical invention of the 21st Century, and with it the world will change...</p>
       </div>
 
-      <div id="google_map">
-<!--         <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Littlehampton,+UK&amp;aq=0&amp;oq=little&amp;sll=53.800651,-4.064941&amp;sspn=20.121063,44.384766&amp;ie=UTF8&amp;hq=&amp;hnear=Littlehampton,+West+Sussex,+United+Kingdom&amp;t=m&amp;ll=50.811033,-0.538673&amp;spn=0.018982,0.036478&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
- -->      </div>
+      <div id="google_map"></div>
 
     </div><!-- /.container -->
-    <div id="List_of_borders">
-    <%=  %>
-    <%=  %>
+    <div id="list_of_borders">
+    <%
+    require 'nokogiri'
+    require 'open-uri'
+    require 'erb'
+
+    page = Nokogiri::HTML(open("http://www.cbsa-asfc.gc.ca/bwt-taf/"))
+    borders = page.css('tr td[headers="Office"]')
+    com = page.css('tr td[headers="Com ComCanada"]')
+    trav = page.css('tr td[headers="Trav TravCanada"]')
+
+    counter = 0
+    borders.each do |border|
+    %>
+      <li> <%= border.children[0].text %> </li>
+      <li>Last Updated: <%= border.children[6].text %> </li>
+      <li>Commerical Traffic: <%= com[counter].text %> </li>
+      <li>Passenger Traffic: <%= trav[counter].text %> </li>
+      </br>
+    <%
+    counter+=1
+    end
+    %>
     </div>
     <div id="test">
     </div>
