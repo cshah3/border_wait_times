@@ -65,21 +65,15 @@
     com = page.css('tr td[headers="Com ComCanada"]')
     trav = page.css('tr td[headers="Trav TravCanada"]')
 
-    counter = 0
     borders.each_with_index do |border, index| 
     %>
       <li id="border_<%=index%>"> <a href="#"> <strong><%= border.children[0].text %> </strong><br>
       Last Updated: <%= border.children[6].text %><br>
-      Commerical Traffic: <%= com[counter].text %><br>
-      Passenger Traffic: <%= trav[counter].text %><br> </li>
+      Commerical Traffic: <%= com[index].text %><br>
+      Passenger Traffic: <%= trav[index].text %><br> </li>
       </br>
-    <%
-    counter+=1
-    end
-    %>
+      <% end %>
       </ul>
-    </div>
-    <div id="test">
     </div>
 
     <!-- Bootstrap core JavaScript
