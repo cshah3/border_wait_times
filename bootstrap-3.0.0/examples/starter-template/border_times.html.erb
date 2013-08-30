@@ -13,7 +13,7 @@
     <link href="../../dist/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -54,6 +54,7 @@
 
     </div><!-- /.container -->
     <div id="list_of_borders">
+      <h2>Border Wait Times</h2>
     <%
     require 'nokogiri'
     require 'open-uri'
@@ -67,10 +68,10 @@
     counter = 0
     borders.each do |border|
     %>
-      <li> <%= border.children[0].text %> </li>
-      <li>Last Updated: <%= border.children[6].text %> </li>
-      <li>Commerical Traffic: <%= com[counter].text %> </li>
-      <li>Passenger Traffic: <%= trav[counter].text %> </li>
+      <li class="times"><a href="#"> <%= border.children[0].text %><br>
+      Last Updated: <%= border.children[6].text %><br>
+      Commerical Traffic: <%= com[counter].text %><br>
+      Passenger Traffic: <%= trav[counter].text %><br> </li>
       </br>
     <%
     counter+=1
