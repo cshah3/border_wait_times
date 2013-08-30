@@ -49,3 +49,23 @@ ul#times li a:hover {
   font-size: 30px;
   background: #f6f6f6;
 }
+
+.indicator {
+  width: 1.25em;
+  height: 1.25em;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.indicator.indicator-short {
+  background-color: green;
+}
+
+.indicator.indicator-medium {
+  background-color: orange;
+}
+
+.indicator.indicator-long {
+  background-color: red;
+}

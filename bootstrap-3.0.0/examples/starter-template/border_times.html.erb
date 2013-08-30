@@ -67,10 +67,36 @@
 
     borders.each_with_index do |border, index| 
     %>
-      <li id="border_<%=index%>"> <a href="#"> <strong><%= border.children[0].text %> </strong><br>
-      Last Updated: <%= border.children[6].text %><br>
-      Commerical Traffic: <%= com[index].text %><br>
-      Passenger Traffic: <%= trav[index].text %><br> </li>
+      <li id="border_<%=index%>"> 
+        <a href="#">
+        <h2><strong><%= border.children[0].text %> </strong></h2>
+        <div>Last Updated: <%= border.children[6].text %></div>
+        <div>
+          Commerical Traffic: <%= com[index].text %>
+          <% if com[index].text.downcase == "no delay" %>
+            <span class="indicator indicator-short">&nbsp;</span>
+          <% elsif com[index].text.downcase == "not applicable" %>
+            <span class="indicator">&nbsp;</span>
+          <% elsif com[index].text.to_i < 30 %>
+            <span class="indicator indicator-medium">&nbsp;</span>
+          <% else %>
+            <span class="indicator indicator-long">&nbsp;</span>
+          <% end %>
+        </div>
+        <div>
+          Passenger Traffic: <%= trav[index].text %>
+          <% if trav[index].text.downcase == "no delay" %>
+            <span class="indicator indicator-short">&nbsp;</span>
+          <% elsif trav[index].text.downcase == "not applicable" %>
+            <span class="indicator">&nbsp;</span>
+          <% elsif trav[index].text.to_i < 30 %>
+            <span class="indicator indicator-medium">&nbsp;</span>
+          <% else %>
+            <span class="indicator indicator-long">&nbsp;</span>
+          <% end %>
+        </div>
+        </a>
+      </li>
       </br>
       <% end %>
       </ul>
