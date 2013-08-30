@@ -1,0 +1,71 @@
+body {
+  padding-top: 50px;
+}
+
+.starter-template {
+  text-align: center;
+}
+
+#google_map {
+	height: 300px;
+  margin: 50px;
+}
+
+#list_of_borders {
+  width: 500px;
+  margin: 0 auto;
+}
+
+ul#times {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul#times li {
+  list-style: none;
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+}
+
+ul#times li:last-child {
+  border: none;
+}
+
+ul#times li a {
+  text-decoration: none;
+  color: #000;
+
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+  display: block;
+  width: 550px;
+}
+
+ul#times li a:hover {
+  font-size: 30px;
+  background: #f6f6f6;
+}
+
+.indicator {
+  width: 1.25em;
+  height: 1.25em;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.indicator.indicator-short {
+  background-color: green;
+}
+
+.indicator.indicator-medium {
+  background-color: orange;
+}
+
+.indicator.indicator-long {
+  background-color: red;
+}
