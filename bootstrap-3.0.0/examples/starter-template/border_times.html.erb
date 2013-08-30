@@ -66,9 +66,9 @@
     trav = page.css('tr td[headers="Trav TravCanada"]')
 
     counter = 0
-    borders.each do |border|
+    borders.each_with_index do |border, index| 
     %>
-      <li><a href="#"> <strong><%= border.children[0].text %> </strong><br>
+      <li id="border_<%=index%>"> <a href="#"> <strong><%= border.children[0].text %> </strong><br>
       Last Updated: <%= border.children[6].text %><br>
       Commerical Traffic: <%= com[counter].text %><br>
       Passenger Traffic: <%= trav[counter].text %><br> </li>
